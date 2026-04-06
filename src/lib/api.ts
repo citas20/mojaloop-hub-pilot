@@ -87,11 +87,11 @@ export const getTransaction = (transferId: string) =>
 
 // Settlement
 export const getSettlementModels = () =>
-  request<any[]>(`${CENTRAL_SETTLEMENT}/settlementModels`);
+  request<any[]>(`${CENTRAL_LEDGER}/settlementModels`);
 export const getSettlementWindows = (state = "OPEN") =>
-  request<any[]>(`${CENTRAL_SETTLEMENT}/settlementWindows?state=${state}`);
+  request<any[]>(`${CENTRAL_SETTLEMENT}/v2/settlementWindows?state=${state}`);
 export const closeSettlementWindow = (id: string | number, reason: string) =>
-  request<any>(`${CENTRAL_SETTLEMENT}/settlementWindows/${id}`, {
+  request<any>(`${CENTRAL_SETTLEMENT}/v2/settlementWindows/${id}`, {
     method: "POST",
     body: JSON.stringify({ state: "CLOSED", reason }),
   });
