@@ -1,0 +1,7 @@
+version: '3'
+services:
+  hub-ui:
+    build: .
+    ports:
+      - "3100:80"
+    restart: always
